@@ -1,0 +1,303 @@
+[
+ {
+  "n": "Fundamentos",
+  "d": "Fundamentos de bienestar y prevención psicosocial.",
+  "t": [
+   {
+    "tema": "Prevención del riesgo psicosocial",
+    "titulo": "Construyendo Entornos Laborales Saludables",
+    "obj": "Sensibilizar sobre factores de riesgo psicosocial y promover ambientes de trabajo saludables, seguros y productivos."
+   },
+   {
+    "tema": "Salud mental y bienestar en el trabajo",
+    "titulo": "Mente Segura",
+    "obj": "Promover conocimientos y herramientas prácticas que favorezcan el bienestar psicológico dentro del entorno laboral."
+   },
+   {
+    "tema": "Prevención del Agotamiento Laboral (Burnout)",
+    "titulo": "Cuidar para Continuar",
+    "obj": "Sensibilizar sobre el Burnout y fortalecer estrategias de autocuidado, manejo del estrés y equilibrio laboral-personal."
+   },
+   {
+    "tema": "Primeros auxilios psicológicos",
+    "titulo": "Primer Respondiente Emocional",
+    "obj": "Capacitar en herramientas básicas de primeros auxilios psicológicos para situaciones de crisis emocional."
+   },
+   {
+    "tema": "Prevención de la conducta suicida en el entorno laboral",
+    "titulo": "Señales de Vida",
+    "obj": "Fortalecer la identificación temprana de señales de alerta relacionadas con conducta suicida y promover acciones oportunas."
+   },
+   {
+    "tema": "Factores protectores de salud mental",
+    "titulo": "Factores que Protegen",
+    "obj": "Reconocer y fortalecer recursos personales, familiares y organizacionales que favorecen el bienestar psicológico."
+   },
+   {
+    "tema": "Prevención del consumo de alcohol y SPA",
+    "titulo": "Decisiones Saludables para una Vida Productiva",
+    "obj": "Promover decisiones responsables frente al consumo de alcohol y sustancias psicoactivas en el entorno laboral."
+   },
+   {
+    "tema": "Capacitación sobre acoso laboral y sexual",
+    "titulo": "Respeto que Protege",
+    "obj": "Brindar información sobre prevención del acoso laboral y sexual, fortaleciendo la cultura del respeto y la convivencia."
+   },
+   {
+    "tema": "Gestión de conflictos en entornos laborales",
+    "titulo": "Transformando los Conflictos en Oportunidades",
+    "obj": "Desarrollar habilidades para identificar, comprender y gestionar conflictos laborales promoviendo relaciones saludables."
+   },
+   {
+    "tema": "Gestión del cambio organizacional",
+    "titulo": "Adaptarse para Crecer",
+    "obj": "Desarrollar habilidades para afrontar procesos de cambio organizacional de manera positiva y productiva."
+   },
+   {
+    "tema": "Felicidad y bienestar organizacional",
+    "titulo": "Bienestar que Impulsa Resultados",
+    "obj": "Promover prácticas que favorezcan el bienestar, la satisfacción y el compromiso de los trabajadores."
+   },
+   {
+    "tema": "Inteligencia artificial y bienestar laboral",
+    "titulo": "Conectados con el Futuro",
+    "obj": "Reflexionar sobre el impacto de la IA en el trabajo y desarrollar estrategias de adaptación saludable."
+   }
+  ]
+ },
+ {
+  "n": "Experiencias",
+  "d": "Herramientas emocionales avanzadas.",
+  "t": [
+   {
+    "tema": "Emociones que construyen o destruyen resultados",
+    "titulo": "El Poder Invisible",
+    "obj": "Comprender cómo las emociones influyen en comunicación, relaciones, productividad y toma de decisiones."
+   },
+   {
+    "tema": "Inteligencia Emocional aplicada al trabajo",
+    "titulo": "Equilibrio Interior",
+    "obj": "Capacitar en inteligencia emocional para identificar y gestionar emociones mejorando relaciones y desempeño laboral."
+   },
+   {
+    "tema": "Estrés financiero y bienestar emocional",
+    "titulo": "Bajo Presión",
+    "obj": "Comprender cómo las preocupaciones económicas impactan la salud mental y el desempeño, fortaleciendo el afrontamiento."
+   },
+   {
+    "tema": "Cómo el microestrés impacta tu vida",
+    "titulo": "Gota a Gota",
+    "obj": "Identificar pequeñas fuentes de estrés cotidiano y fortalecer estrategias para prevenir su acumulación."
+   },
+   {
+    "tema": "Fatiga mental y toma de decisiones seguras",
+    "titulo": "Modo Piloto",
+    "obj": "Reconocer el impacto de la fatiga sobre la atención y la seguridad laboral, promoviendo el autocuidado."
+   },
+   {
+    "tema": "Resiliencia y adaptación al cambio",
+    "titulo": "Reiniciando",
+    "obj": "Fortalecer recursos personales para afrontar situaciones difíciles y adaptarse saludablemente a los cambios."
+   },
+   {
+    "tema": "Liderando tu proyecto de vida",
+    "titulo": "Tú al Volante",
+    "obj": "Promover la reflexión sobre el propósito personal y la responsabilidad individual en la construcción de una vida equilibrada."
+   },
+   {
+    "tema": "Inteligencia emocional para una movilidad segura",
+    "titulo": "Alto en el Camino",
+    "obj": "Sensibilizar sobre la influencia de las emociones en la conducción y la toma de decisiones responsables."
+   },
+   {
+    "tema": "Mindfulness y atención plena para el bienestar",
+    "titulo": "Pausa para Vivir",
+    "obj": "Desarrollar habilidades de atención plena para mejorar concentración, reducir estrés y fortalecer el bienestar."
+   },
+   {
+    "tema": "Motivación y actitud para la vida laboral",
+    "titulo": "Energía Positiva",
+    "obj": "Fortalecer la motivación personal y la actitud positiva como herramientas para enfrentar desafíos laborales."
+   },
+   {
+    "tema": "Técnicas de relajación y manejo de la ansiedad",
+    "titulo": "Respira para Avanzar",
+    "obj": "Brindar herramientas prácticas para reducir la ansiedad y promover estados de calma y equilibrio emocional."
+   }
+  ]
+ },
+ {
+  "n": "Escuela de Liderazgo",
+  "d": "Competencias de liderazgo saludable.",
+  "t": [
+   {
+    "tema": "Liderazgo que impacta la salud mental",
+    "titulo": "Efecto Espejo",
+    "obj": "Fortalecer competencias de liderazgo saludable que promuevan el bienestar psicológico y el desarrollo positivo de equipos."
+   },
+   {
+    "tema": "Inteligencia emocional para líderes",
+    "titulo": "Inteligencia que Lidera",
+    "obj": "Desarrollar habilidades emocionales que permitan gestionar equipos de manera más efectiva y humana."
+   },
+   {
+    "tema": "Comunicación asertiva y feedback efectivo",
+    "titulo": "Conversaciones que Transforman",
+    "obj": "Desarrollar habilidades de comunicación que favorezcan relaciones laborales saludables y conversaciones constructivas."
+   },
+   {
+    "tema": "Liderazgo consciente",
+    "titulo": "Liderar para Inspirar y Transformar",
+    "obj": "Fortalecer competencias de liderazgo orientadas a la gestión de equipos, comunicación efectiva y desarrollo del talento."
+   },
+   {
+    "tema": "Toma de decisiones en contextos de estrés",
+    "titulo": "Liderazgo bajo Presión",
+    "obj": "Fortalecer la capacidad de análisis y toma de decisiones efectivas en situaciones de alta presión."
+   },
+   {
+    "tema": "Trabajo en equipo de alto desempeño",
+    "titulo": "Construyendo Juntos el Éxito",
+    "obj": "Fomentar la colaboración efectiva, fortaleciendo habilidades para un trabajo en equipo exitoso."
+   },
+   {
+    "tema": "Reconocimiento y motivación de equipos",
+    "titulo": "Motivar para Crecer",
+    "obj": "Fortalecer estrategias de reconocimiento y motivación que favorezcan el compromiso y el desempeño laboral."
+   }
+  ]
+ },
+ {
+  "n": "Líderes",
+  "d": "Habilidades directivas y de gestión.",
+  "t": [
+   {
+    "tema": "Manejo del tiempo y productividad personal",
+    "titulo": "Tiempo con Propósito",
+    "obj": "Desarrollar habilidades para administrar eficientemente el tiempo y mejorar la productividad laboral."
+   },
+   {
+    "tema": "Liderazgo saludable y prevención del riesgo psicosocial",
+    "titulo": "Liderar con Bienestar",
+    "obj": "Fortalecer competencias de liderazgo para la promoción de la salud mental y la construcción de equipos saludables."
+   },
+   {
+    "tema": "Gestión del cambio para equipos de trabajo",
+    "titulo": "Líderes Resilientes",
+    "obj": "Desarrollar competencias para liderar procesos de cambio organizacional minimizando la resistencia."
+   },
+   {
+    "tema": "La clave para relacionarte con éxito",
+    "titulo": "Comunicación Asertiva",
+    "obj": "Mejorar la capacidad de expresar ideas y emociones de manera clara y respetuosa, fortaleciendo relaciones interpersonales."
+   },
+   {
+    "tema": "Servicio al cliente con inteligencia emocional",
+    "titulo": "Conectando con las Personas",
+    "obj": "Desarrollar habilidades emocionales y comunicativas para brindar experiencias positivas en la atención al cliente."
+   },
+   {
+    "tema": "Delegación efectiva y empoderamiento",
+    "titulo": "Delegar para Avanzar",
+    "obj": "Desarrollar habilidades para delegar de manera efectiva, promoviendo la autonomía y el crecimiento del equipo."
+   },
+   {
+    "tema": "Herramientas para recuperar tu bienestar",
+    "titulo": "Manejo del Estrés",
+    "obj": "Dotar de estrategias prácticas para reconocer y manejar el estrés, promoviendo el equilibrio emocional."
+   }
+  ]
+ },
+ {
+  "n": "Familia",
+  "d": "Bienestar familiar para colaboradores.",
+  "t": [
+   {
+    "tema": "Bienestar familiar y salud mental",
+    "titulo": "Familias que Fortalecen",
+    "obj": "Promover prácticas familiares saludables que fortalezcan la salud mental y el bienestar emocional."
+   },
+   {
+    "tema": "Herramientas para madres y padres",
+    "titulo": "Crianza Consciente",
+    "obj": "Fortalecer habilidades parentales y promover una crianza basada en el respeto, la comunicación y el desarrollo emocional."
+   },
+   {
+    "tema": "Comunicación familiar saludable",
+    "titulo": "Comunicación que Une",
+    "obj": "Desarrollar habilidades de comunicación que favorezcan relaciones familiares basadas en el respeto y la comprensión mutua."
+   },
+   {
+    "tema": "Manejo emocional en la adolescencia",
+    "titulo": "Entendiendo la Adolescencia",
+    "obj": "Brindar herramientas para comprender cambios emocionales en la adolescencia y fortalecer el acompañamiento familiar."
+   },
+   {
+    "tema": "Fortalecimiento de relaciones de pareja",
+    "titulo": "Parejas que Construyen",
+    "obj": "Promover habilidades de comunicación, empatía y resolución de conflictos para relaciones de pareja saludables."
+   },
+   {
+    "tema": "Prevención del consumo de SPA en la familia",
+    "titulo": "Prevención que Protege",
+    "obj": "Fortalecer factores protectores familiares y promover estrategias preventivas frente al consumo de sustancias."
+   },
+   {
+    "tema": "Apoyo emocional a niños y adolescentes",
+    "titulo": "Primeros Auxilios Emocionales para Padres",
+    "obj": "Capacitar a madres, padres y cuidadores en herramientas básicas de apoyo emocional a menores."
+   },
+   {
+    "tema": "Creatividad y bienestar familiar",
+    "titulo": "Arte en Familia",
+    "obj": "Fortalecer la integración familiar mediante actividades artísticas que promuevan comunicación y bienestar emocional."
+   },
+   {
+    "tema": "Autocuidado para padres y cuidadores",
+    "titulo": "Cuidando al Cuidador",
+    "obj": "Promover prácticas de autocuidado físico, emocional y social en personas que desempeñan funciones de cuidado."
+   }
+  ]
+ },
+ {
+  "n": "Alta Dirección",
+  "d": "Estrategias para alta dirección.",
+  "t": [
+   {
+    "tema": "El futuro de las empresas saludables",
+    "titulo": "Organizaciones Humanamente Inteligentes",
+    "obj": "Reflexionar sobre los desafíos actuales y desarrollar estrategias para integrar bienestar, productividad y sostenibilidad."
+   },
+   {
+    "tema": "Construcción de una cultura organizacional saludable",
+    "titulo": "Cultura que Trasciende",
+    "obj": "Comprender los elementos de una cultura organizacional positiva y diseñar acciones que favorezcan el bienestar."
+   },
+   {
+    "tema": "Cómo construir programas que generan resultados",
+    "titulo": "Bienestar Organizacional Basado en Evidencia",
+    "obj": "Brindar herramientas para diseñar, implementar y evaluar programas de bienestar con enfoque estratégico."
+   },
+   {
+    "tema": "De la obligación legal a la ventaja competitiva",
+    "titulo": "Gerenciando el Riesgo Psicosocial",
+    "obj": "Transformar la gestión del riesgo psicosocial en una herramienta estratégica para la productividad."
+   },
+   {
+    "tema": "Prevención del burnout en cargos directivos",
+    "titulo": "Liderar sin Quemarse",
+    "obj": "Reconocer factores de riesgo asociados al agotamiento en cargos de liderazgo y fortalecer el autocuidado."
+   },
+   {
+    "tema": "Salud mental en la toma de decisiones estratégicas",
+    "titulo": "Salud Mental para la Alta Dirección",
+    "obj": "Sensibilizar sobre la importancia de la salud mental en el liderazgo organizacional y la toma de decisiones."
+   },
+   {
+    "tema": "Liderar en contextos complejos y de cambio",
+    "titulo": "Liderazgo Estratégico en Tiempos de Incertidumbre",
+    "obj": "Desarrollar competencias para liderar organizaciones en contextos complejos y de cambio constante."
+   }
+  ]
+ }
+]

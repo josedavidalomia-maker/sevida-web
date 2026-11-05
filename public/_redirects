@@ -1,0 +1,17 @@
+# Cloudflare Pages: redirecciones dentro de sevida.com.co (las de otros dominios van en Bulk Redirects; ver DESPLIEGUE.md)
+/index.html / 301
+/blog/index.html /blog/ 301
+/blog/analisis-puesto-trabajo-bateria-vs-determinacion-origen.html /blog/analisis-puesto-trabajo-bateria-vs-determinacion-origen/ 301
+/blog/bateria-riesgo-psicosocial-cali-valle-del-cauca.html /blog/bateria-riesgo-psicosocial-cali-valle-del-cauca/ 301
+/blog/como-construir-pirp-plan-intervencion-riesgo-psicosocial.html /blog/como-construir-pirp-plan-intervencion-riesgo-psicosocial/ 301
+/blog/como-elegir-proveedor-bateria-riesgo-psicosocial.html /blog/como-elegir-proveedor-bateria-riesgo-psicosocial/ 301
+/blog/decreto-728-2025-salud-mental-trabajo-colombia.html /blog/decreto-728-2025-salud-mental-trabajo-colombia/ 301
+/blog/falta-de-control-autonomia-riesgo-psicosocial.html /blog/falta-de-control-autonomia-riesgo-psicosocial/ 301
+/blog/liderazgo-relaciones-sociales-acoso-laboral-riesgo-psicosocial.html /blog/liderazgo-relaciones-sociales-acoso-laboral-riesgo-psicosocial/ 301
+/blog/riesgo-psicosocial-colombia-guia-empresas.html /blog/riesgo-psicosocial-colombia-guia-empresas/ 301
+/blog/sobrecarga-ritmo-trabajo-riesgo-psicosocial.html /blog/sobrecarga-ritmo-trabajo-riesgo-psicosocial/ 301
+/blog/trabajo-remoto-riesgo-psicosocial-colombia.html /blog/trabajo-remoto-riesgo-psicosocial-colombia/ 301
+/ivso /ismo/ 301
+/ivso/ /ismo/ 301
+/evolucion/ /servicios/recalibra-empresarial/ 301
+/reset-laboral/ /servicios/recalibra-empresarial/ 301

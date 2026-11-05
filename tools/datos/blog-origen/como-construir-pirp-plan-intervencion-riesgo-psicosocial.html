@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cómo Construir un PIRP: Guía Técnica para el Plan de Intervención de Riesgo Psicosocial | Vitalis Empresarial</title>
+<meta name="description" content="El Plan de Intervención de Riesgo Psicosocial (PIRP) es el documento más frecuentemente ausente o mal construido en la gestión psicosocial colombiana. Guía técnica paso a paso: estructura, priorización, indicadores y errores a evitar.">
+<link rel="canonical" href="https://josedavidalomia-maker.github.io/vitalis-web/blog/como-construir-pirp-plan-intervencion-riesgo-psicosocial.html">
+<meta property="og:title" content="Cómo Construir un PIRP: Guía Técnica Paso a Paso">
+<meta property="og:description" content="El PIRP es el eslabón más frecuentemente roto en la gestión psicosocial colombiana. Le explicamos cómo construirlo correctamente con base en la batería psicosocial y el marco normativo vigente.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://josedavidalomia-maker.github.io/vitalis-web/img/og-cover.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',system-ui,sans-serif;color:#374151;background:#fff;line-height:1.7}
+.nav{background:#0D1B2A;padding:14px 24px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:99;flex-wrap:wrap}
+.nav img{height:34px;width:auto}
+.nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;font-weight:600}
+.nav a:hover{color:#C9A84C}
+.hero{background:#0D1B2A;padding:56px 24px 48px;text-align:center}
+.eyebrow{display:inline-block;background:#C9A84C;color:#0D1B2A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-family:Montserrat,Georgia,sans-serif;font-weight:900;font-size:clamp(22px,4vw,36px);color:#fff;line-height:1.2;max-width:800px;margin:0 auto 16px}
+.meta{font-size:13px;color:rgba(255,255,255,.55)}
+.wrap{max-width:780px;margin:0 auto;padding:48px 24px 64px}
+.intro{font-size:16px;color:#0E7C7B;line-height:1.75;margin-bottom:32px;padding:20px 24px;background:#F0FDFA;border-left:4px solid #0E7C7B;border-radius:0 8px 8px 0}
+.body h2{font-family:Montserrat,Georgia,sans-serif;font-weight:800;font-size:20px;color:#0D1B2A;margin:36px 0 12px}
+.body h3{font-family:Montserrat,Georgia,sans-serif;font-weight:700;font-size:16px;color:#1A4B7C;margin:24px 0 8px}
+.body p{margin-bottom:16px;font-size:15px}
+.body ul,.body ol{margin:12px 0 20px 24px;font-size:15px}
+.body li{margin-bottom:8px}
+.body strong{color:#0D1B2A}
+.destaque{background:#FEF9C3;border-left:4px solid #EAB308;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:#713F12}
+.alerta{background:#FEF2F2;border-left:4px solid #EF4444;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:#7F1D1D}
+.verde{background:#F0FDF4;border-left:4px solid #22C55E;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:#14532D}
+.tabla-wrapper{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#0D1B2A;color:#fff;padding:10px 14px;text-align:left;font-family:Montserrat,sans-serif}
+td{padding:10px 14px;border-bottom:1px solid #E5E7EB;vertical-align:top}
+tr:nth-child(even) td{background:#F9FAFB}
+.author{background:#F2F5F9;border-radius:12px;padding:24px;margin-top:40px;display:flex;gap:16px;align-items:flex-start}
+.author-icon{width:48px;height:48px;border-radius:50%;background:#0E7C7B;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cta-box{background:#0D1B2A;border-radius:14px;padding:32px 28px;text-align:center;margin-top:40px}
+.cta-box h3{font-family:Montserrat,Georgia,sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:10px}
+.cta-box p{font-size:13.5px;color:rgba(255,255,255,.75);margin-bottom:20px}
+.btn{display:inline-block;padding:12px 24px;border-radius:9px;font-family:Montserrat,Georgia,sans-serif;font-weight:700;font-size:14px;text-decoration:none;background:#C9A84C;color:#0D1B2A}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#0E7C7B;text-decoration:none;margin-bottom:24px;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.tag{background:#FEF9C3;color:#713F12;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px}
+footer{background:#0D1B2A;padding:24px;text-align:center;font-size:12px;color:rgba(255,255,255,.45)}
+footer a{color:#C9A84C;text-decoration:none}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html"><img src="../img/logo-vitalis.webp" alt="Vitalis Empresarial"></a>
+  <a href="../index.html">Inicio</a>
+  <a href="../index.html#servicios">Servicios</a>
+  <a href="../index.html#ivso">Diagnóstico IVSO</a>
+  <a href="../index.html#contacto">Contacto</a>
+  <a href="index.html">Blog</a>
+</nav>
+
+<header class="hero">
+  <span class="eyebrow">Blog · Herramientas de gestión SST</span>
+  <h1>Cómo Construir un PIRP: Guía Técnica para el Plan de Intervención de Riesgo Psicosocial</h1>
+  <p class="meta">Por Jose David Alomía Gutiérrez · Psicólogo Especialista en SST · Agosto 2026 · 18 min de lectura</p>
+</header>
+
+<main class="wrap">
+  <a href="index.html" class="back">← Volver al blog</a>
+
+  <p class="intro">El informe de la batería psicosocial llegó. Está en el servidor de la empresa, firmado, con el nivel de riesgo por dimensión y por área. Y lleva seis meses ahí, sin que nada haya cambiado. Ese es el escenario más frecuente en la gestión psicosocial colombiana: diagnóstico sin intervención. El Plan de Intervención de Riesgo Psicosocial — PIRP — es el documento que cierra esa brecha. También es el documento más frecuentemente ausente, genérico o inoperante en los sistemas de gestión que reviso. Esta guía explica qué es el PIRP, qué debe contener, cómo priorizarlo correctamente y cuáles son los errores que lo convierten en letra muerta.</p>
+
+  <div class="body">
+
+    <h2>Qué es el PIRP y por qué existe</h2>
+    <p>El Plan de Intervención de Riesgo Psicosocial es el instrumento de planificación que traduce los hallazgos de la evaluación psicosocial en acciones concretas, con responsables definidos, recursos asignados y plazos establecidos. No es un documento más del SG-SST — es el mecanismo que convierte el diagnóstico en gestión.</p>
+    <p>Su obligatoriedad deriva de la Resolución 2646 de 2008, que establece que los empleadores deben no solo evaluar los factores de riesgo psicosocial sino también <em>intervenir</em> sobre ellos de forma sistemática. La norma es explícita: la evaluación por sí sola no cumple con la obligación de prevención. Lo que el Ministerio del Trabajo verifica en una inspección no es solo si la batería fue aplicada — verifica si los resultados de esa batería generaron acciones documentadas y ejecutadas.</p>
+    <p>El Decreto 728 de 2025 refuerza esta exigencia al requerir que las acciones de promoción de la salud mental estén basadas en los resultados de la evaluación psicosocial. Eso es, en términos prácticos, un PIRP con componente explícito de salud mental — no actividades de bienestar desconectadas del diagnóstico.</p>
+
+    <div class="alerta">
+      <strong>El error más costoso:</strong> Tener la batería aplicada y el informe entregado, pero sin PIRP documentado ni ejecutado. En ese escenario, la empresa tiene el diagnóstico de un riesgo que declaró conocer y no gestionó. Si ocurre un evento de salud mental relacionado con el trabajo, esa combinación agrava significativamente su responsabilidad ante el sistema de riesgos laborales y en sede judicial.
+    </div>
+
+    <h2>La diferencia entre un PIRP real y un PIRP documental</h2>
+    <p>Un PIRP documental existe en el papel y cumple formalmente con la presencia del documento en el SG-SST. Un PIRP real existe en la práctica: las acciones se ejecutan, alguien es responsable de cada una, hay evidencias de ejecución y hay indicadores que permiten saber si el plan está funcionando.</p>
+    <p>Las señales de que un PIRP es solo documental:</p>
+    <ul>
+      <li>Las actividades son genéricas — "talleres de manejo del estrés", "actividades de bienestar" — sin conexión explícita con los hallazgos específicos de la batería.</li>
+      <li>Los responsables son áreas o departamentos, no cargos específicos. "Área de RRHH" no es un responsable — no hay nadie a quien rendir cuentas.</li>
+      <li>No hay indicadores de resultado — solo indicadores de actividad ("se realizó el taller"). Un indicador de actividad mide si algo se hizo; un indicador de resultado mide si produjo algún cambio.</li>
+      <li>El PIRP no tiene fechas de revisión — no hay un mecanismo para verificar si se está ejecutando según lo planeado.</li>
+      <li>El PIRP no fue revisado ni actualizado después de la última evaluación psicosocial — es el mismo documento de hace tres años con las fechas cambiadas.</li>
+    </ul>
+
+    <h2>La arquitectura de un PIRP técnicamente sólido</h2>
+    <p>Un PIRP bien construido tiene una estructura que responde a preguntas específicas. Lo que sigue es la arquitectura que Vitalis Empresarial utiliza como referencia técnica:</p>
+
+    <h3>Encabezado e identificación</h3>
+    <ul>
+      <li>Nombre de la empresa, NIT, sector económico, número de trabajadores.</li>
+      <li>Fecha de la evaluación psicosocial que origina el plan y referencia al informe técnico.</li>
+      <li>Período de vigencia del PIRP (normalmente doce meses, con revisiones trimestrales).</li>
+      <li>Profesional responsable de la coordinación del PIRP (cargo, no solo nombre).</li>
+      <li>Firma y aprobación de la dirección — el PIRP debe ser avalado por quien tiene autoridad para asignar recursos.</li>
+    </ul>
+
+    <h3>Diagnóstico de base</h3>
+    <p>Un resumen de los hallazgos más relevantes de la evaluación psicosocial, organizado por dominio y subdimensión, con identificación de las áreas o grupos de trabajadores más afectados. Este diagnóstico no es una repetición del informe completo — es una síntesis que justifica las intervenciones planificadas.</p>
+    <p>La síntesis debe responder tres preguntas: ¿cuáles son los factores de riesgo más críticos? ¿qué grupos de la organización están más expuestos? ¿qué relaciones hay entre los factores — hay dimensiones que se están amplificando mutuamente?</p>
+
+    <h3>Objetivos del plan</h3>
+    <p>Un objetivo general que describe el propósito del PIRP en términos de reducción del riesgo psicosocial en la organización, y objetivos específicos para cada dominio o dimensión que requiere intervención. Los objetivos deben ser verificables — deben poder responderse con sí o no al final del período.</p>
+    <p>Ejemplo de objetivo específico mal formulado: "Mejorar el bienestar de los trabajadores en el área de operaciones". No es verificable ni está conectado con un hallazgo específico.</p>
+    <p>Ejemplo de objetivo específico bien formulado: "Reducir el porcentaje de trabajadores del área de operaciones con riesgo alto en demandas cuantitativas del 68% actual al 40% en la próxima evaluación, mediante la redistribución de cargas y la incorporación de pausas estructuradas". Tiene punto de partida, meta numérica, plazo e intervención asociada.</p>
+
+    <h3>Matriz de intervenciones</h3>
+    <p>Este es el corazón operativo del PIRP. Cada fila de la matriz corresponde a una intervención específica. Las columnas mínimas que debe tener son:</p>
+
+    <div class="tabla-wrapper">
+      <table>
+        <tr>
+          <th>Factor de riesgo abordado</th>
+          <th>Intervención</th>
+          <th>Nivel de intervención</th>
+          <th>Población objetivo</th>
+          <th>Responsable (cargo)</th>
+          <th>Fecha inicio</th>
+          <th>Fecha cierre</th>
+          <th>Indicador de resultado</th>
+          <th>Recursos requeridos</th>
+        </tr>
+        <tr>
+          <td>Demandas cuantitativas — Op.</td>
+          <td>Revisión y redistribución de cargas por cargo</td>
+          <td>Primario (condiciones)</td>
+          <td>Área de Operaciones (32 personas)</td>
+          <td>Coordinador de Operaciones</td>
+          <td>Sep 2026</td>
+          <td>Nov 2026</td>
+          <td>% trabajadores con riesgo alto ≤ 40% en re-eval.</td>
+          <td>8h coordinador + consultoría externa</td>
+        </tr>
+        <tr>
+          <td>Características del liderazgo — Ventas</td>
+          <td>Coaching ejecutivo para jefatura de ventas</td>
+          <td>Secundario (sistema)</td>
+          <td>Jefe de ventas + equipo (15 personas)</td>
+          <td>Gerente RRHH</td>
+          <td>Oct 2026</td>
+          <td>Mar 2027</td>
+          <td>Resultado subdimensión liderazgo en re-eval.</td>
+          <td>Proveedor externo coaching</td>
+        </tr>
+      </table>
+    </div>
+
+    <h3>Niveles de intervención: una distinción fundamental</h3>
+    <p>El nivel de intervención es uno de los campos más importantes de la matriz y uno de los más frecuentemente omitidos. La clasificación estándar en salud ocupacional distingue tres niveles:</p>
+    <ul>
+      <li><strong>Intervención primaria:</strong> actúa sobre las fuentes del riesgo — las condiciones objetivas del trabajo. Ejemplos: redistribución de cargas, rediseño de procesos, clarificación de roles, políticas de desconexión digital. Es el nivel de mayor impacto y mayor dificultad de implementación, porque requiere cambios en el trabajo mismo.</li>
+      <li><strong>Intervención secundaria:</strong> actúa sobre el sistema de gestión — los mecanismos organizacionales que median entre las condiciones de trabajo y el daño a la salud. Ejemplos: formación de líderes, protocolos de comunicación del cambio, fortalecimiento del comité de convivencia. No modifica directamente las condiciones, pero mejora la capacidad de la organización para gestionarlas.</li>
+      <li><strong>Intervención terciaria:</strong> actúa sobre las personas que ya presentan daño — atención a trabajadores con síntomas de estrés crónico, burnout o trastornos relacionados. Ejemplos: acceso a psicología, programas de rehabilitación laboral, ajuste temporal de funciones. No reduce el riesgo en la fuente, pero atiende el daño ya producido.</li>
+    </ul>
+    <p>Un PIRP bien construido tiene intervenciones en los tres niveles, con predominio del nivel primario. Un PIRP que solo tiene intervenciones terciarias — talleres de manejo del estrés, atención psicológica — está atendiendo síntomas sin tocar las causas. Puede ser necesario, pero no es suficiente.</p>
+
+    <h2>Cómo priorizar las intervenciones cuando los recursos son limitados</h2>
+    <p>Ninguna organización tiene recursos ilimitados para implementar todas las intervenciones posibles simultáneamente. La priorización es una decisión técnica que debe hacerse con criterios explícitos — no con intuición ni con preferencias del área de RRHH.</p>
+    <p>Los criterios de priorización más sólidos técnicamente son:</p>
+
+    <h3>Nivel de riesgo identificado</h3>
+    <p>Las dimensiones con riesgo muy alto deben atenderse primero. No porque las demás no importen, sino porque la probabilidad de daño a la salud es mayor y la exposición ya está en un umbral crítico. Un resultado de riesgo muy alto en demandas cuantitativas en un área de veinte personas es más urgente que un resultado de riesgo medio en otra área de cien.</p>
+
+    <h3>Número de trabajadores expuestos</h3>
+    <p>A igual nivel de riesgo, una intervención que beneficia a setenta trabajadores tiene mayor impacto poblacional que una que beneficia a cinco. Este criterio no anula el anterior — la urgencia del nivel de riesgo tiene peso mayor — pero sí entra en la decisión cuando hay que elegir entre intervenciones de prioridad similar.</p>
+
+    <h3>Viabilidad de modificación</h3>
+    <p>Algunos factores de riesgo son más difíciles de modificar que otros en el corto plazo. Un cambio en el diseño del proceso productivo puede requerir meses de planificación; un protocolo de comunicación del cambio puede implementarse en semanas. Esto no significa que los factores difíciles de modificar se ignoren — significa que se planifican a mayor plazo con hitos intermedios, mientras las intervenciones de mayor facilidad se ejecutan en el corto plazo para generar cambios observables que sostengan el proceso.</p>
+
+    <h3>Costo de no intervenir</h3>
+    <p>El ausentismo generado por el factor de riesgo, la rotación asociada y la exposición legal tienen un costo estimable. Cuando ese costo es cuantificable — aunque sea de forma aproximada — puede compararse con el costo de la intervención. Esta perspectiva es útil para presentar el PIRP a la dirección como una decisión de inversión, no como un gasto de cumplimiento.</p>
+
+    <div class="destaque">
+      <strong>Criterio que suele pasarse por alto:</strong> Las intervenciones sobre el dominio de liderazgo tienen frecuentemente el mayor retorno sobre la inversión de todo el PIRP, porque el comportamiento del jefe inmediato es un moderador que amplifica o amortigua el impacto de prácticamente todos los demás factores de riesgo. Un líder que gestiona bien la presión, comunica con claridad y reconoce el trabajo de su equipo puede compensar condiciones objetivamente desfavorables. Uno que no lo hace puede dañar entornos objetivamente razonables.
+    </div>
+
+    <h2>Los indicadores: la diferencia entre un plan que se evalúa y uno que se archiva</h2>
+    <p>Los indicadores son el mecanismo que permite saber si el PIRP está funcionando. Sin indicadores, el plan se ejecuta pero no se evalúa — y la próxima batería psicosocial llegará con los mismos resultados desfavorables sin que nadie entienda por qué las intervenciones no produjeron cambio.</p>
+    <p>Para cada intervención del PIRP deben existir dos tipos de indicadores:</p>
+
+    <h3>Indicadores de proceso</h3>
+    <p>Miden si la intervención se está ejecutando según lo planeado. Son binarios o porcentuales: el taller se realizó / no se realizó; el 80% de los líderes asistió a la formación. Son necesarios para el seguimiento operativo, pero insuficientes para evaluar impacto. Una intervención puede ejecutarse al 100% y no producir ningún cambio en el factor de riesgo que buscaba abordar.</p>
+
+    <h3>Indicadores de resultado</h3>
+    <p>Miden si la intervención produjo el cambio esperado en las condiciones de trabajo o en los niveles de riesgo. Son más difíciles de construir pero son los que verdaderamente validan el plan. Ejemplos:</p>
+    <ul>
+      <li>Porcentaje de trabajadores con riesgo alto en demandas cuantitativas antes y después de la redistribución de cargas (medido en re-evaluación).</li>
+      <li>Tasa de ausentismo por diagnósticos de salud mental en el área intervenida, comparada con el período anterior.</li>
+      <li>Número de quejas al comité de convivencia en el área donde se implementó el programa de liderazgo, antes y después.</li>
+      <li>Puntuación promedio en la subdimensión de características del liderazgo en la re-evaluación posterior a la intervención de coaching.</li>
+    </ul>
+    <p>Construir indicadores de resultado requiere definir una línea de base — el punto de partida que permitirá comparar. Si esa línea de base no se establece antes de iniciar la intervención, la evaluación posterior no tendrá referencia y los resultados no podrán interpretarse con rigor.</p>
+
+    <h2>La integración del PIRP con el SG-SST y con el Decreto 728/2025</h2>
+    <p>El PIRP no es un documento independiente — es un componente del SG-SST que debe articularse con otros elementos del sistema:</p>
+
+    <h3>Articulación con el Programa de Vigilancia Epidemiológica (PVE)</h3>
+    <p>El PVE psicosocial es el mecanismo de seguimiento individual a trabajadores con riesgo alto o muy alto. El PIRP y el PVE son complementarios: el PIRP interviene sobre las condiciones (nivel poblacional), el PVE hace seguimiento a las personas más expuestas (nivel individual). Ambos deben estar coordinados — las intervenciones del PIRP deben ser coherentes con los hallazgos que alimentan el PVE.</p>
+
+    <h3>Articulación con el Decreto 728/2025</h3>
+    <p>El Decreto 728/2025 exige que las acciones de promoción de la salud mental y el programa de prevención de sustancias psicoactivas estén basados en los resultados de la evaluación psicosocial. En términos prácticos, estas obligaciones deben estar incorporadas como componentes del PIRP — no como documentos separados que duplican la gestión. El PIRP es el lugar natural donde esas acciones encuentran su fundamento en el diagnóstico.</p>
+
+    <h3>Articulación con el comité de convivencia laboral</h3>
+    <p>Como se explicó en otro artículo de este blog, el comité de convivencia tiene una función preventiva que se nutre de los resultados de la batería psicosocial. Las acciones del comité que respondan a los hallazgos del dominio de liderazgo y relaciones sociales deben quedar reflejadas en el PIRP — y el comité debe ser informado del avance en la ejecución del plan.</p>
+
+    <h2>Periodicidad y actualización del PIRP</h2>
+    <p>El PIRP tiene una vigencia que debe estar explícitamente definida. La práctica más extendida es un plan anual con revisiones trimestrales, pero la periodicidad apropiada depende del nivel de riesgo identificado y de la complejidad de las intervenciones planificadas.</p>
+    <p>El PIRP debe actualizarse cuando:</p>
+    <ul>
+      <li>Se completa una nueva evaluación psicosocial con la batería — los nuevos hallazgos deben reflejarse en el plan.</li>
+      <li>Se producen cambios organizacionales significativos que modifican las condiciones de exposición — restructuraciones, cambios de modelo de trabajo, variaciones importantes en la nómina.</li>
+      <li>El seguimiento trimestral muestra que una intervención no está generando el cambio esperado — el plan debe ajustarse, no persistir mecánicamente en una estrategia que no funciona.</li>
+      <li>Ocurre un evento de salud mental relacionado con el trabajo — accidente o enfermedad de origen psicosocial — que indica que el plan no está siendo suficiente para controlar el riesgo.</li>
+    </ul>
+
+    <h2>Cómo presentar el PIRP a la dirección</h2>
+    <p>Uno de los obstáculos más frecuentes para que el PIRP tenga impacto real es que no cuenta con el respaldo de la dirección — no porque la dirección se oponga, sino porque nadie le presentó los resultados de la batería y el plan de intervención en un lenguaje que conecte con sus prioridades de negocio.</p>
+    <p>La presentación del PIRP a la alta dirección debe responder cuatro preguntas en este orden:</p>
+    <ol>
+      <li><strong>¿Cuál es la situación actual?</strong> Los hallazgos más críticos de la batería, expresados en términos de qué está pasando en la organización — no en términos de puntuaciones ni niveles de riesgo abstractos.</li>
+      <li><strong>¿Qué está costando esta situación?</strong> Una estimación del impacto en ausentismo, rotación y productividad asociado a los factores de riesgo identificados. No es necesario que sea un cálculo actuarial preciso — es suficiente con órdenes de magnitud que hagan visible el costo de no intervenir.</li>
+      <li><strong>¿Qué propone hacer el PIRP?</strong> Las intervenciones prioritarias con sus recursos y plazos — en lenguaje de gestión, no en lenguaje técnico de SST.</li>
+      <li><strong>¿Cómo se sabrá si funcionó?</strong> Los indicadores de resultado y el mecanismo de seguimiento — para que la dirección pueda monitorear el avance sin necesidad de inmiscuirse en los detalles operativos.</li>
+    </ol>
+    <p>Una presentación que responde estas cuatro preguntas en veinte minutos tiene más probabilidad de conseguir el respaldo de la dirección que un documento técnico de cincuenta páginas que nadie leerá completo.</p>
+
+    <h2>Los errores más frecuentes en la construcción del PIRP</h2>
+
+    <h3>Copiar el PIRP del año anterior cambiando las fechas</h3>
+    <p>Los factores de riesgo psicosocial cambian con las condiciones de trabajo — y las condiciones de trabajo cambian. Un PIRP que no refleja los hallazgos de la evaluación más reciente no es un plan de intervención — es un documento de archivo. La señal más clara de este error es cuando las actividades del PIRP son idénticas año tras año, independientemente de los resultados de la batería.</p>
+
+    <h3>Diseñar intervenciones antes de analizar el diagnóstico</h3>
+    <p>Algunas organizaciones tienen un menú fijo de actividades de bienestar — torneos deportivos, talleres de mindfulness, celebraciones de cumpleaños — que insertan en el PIRP independientemente de lo que muestre la batería. Estas actividades pueden tener valor como parte de la cultura organizacional, pero no son intervenciones de riesgo psicosocial a menos que respondan a los factores de riesgo identificados.</p>
+
+    <h3>Asignar responsabilidades al área de SST para todo</h3>
+    <p>El área de SST o de RRHH puede coordinar el PIRP, pero no puede ser responsable de todas las intervenciones. La redistribución de cargas de trabajo es responsabilidad del coordinador del área afectada. El desarrollo de competencias de liderazgo es responsabilidad compartida entre el líder y su jefatura. Cuando el área de SST aparece como responsable de todo en el PIRP, es señal de que las intervenciones no están siendo asumidas por quienes tienen la autoridad para ejecutarlas.</p>
+
+    <h3>No distinguir entre indicadores de proceso y de resultado</h3>
+    <p>Un PIRP lleno de indicadores de proceso — "se realizaron X talleres", "asistieron Y personas" — pero sin indicadores de resultado no permite evaluar si el plan está funcionando. La próxima batería psicosocial puede mostrar los mismos niveles de riesgo que la anterior, y nadie podrá explicar por qué — porque nadie midió si las intervenciones produjeron cambio.</p>
+
+    <div class="verde">
+      <strong>Para cerrar:</strong> El PIRP es el documento donde la gestión psicosocial se vuelve real — donde el diagnóstico se convierte en acción y las acciones en cambios verificables. Construirlo bien no es un ejercicio burocrático: es la diferencia entre una organización que conoce sus riesgos y los gestiona, y una que los conoce y los ignora. La primera puede demostrar diligencia ante cualquier instancia. La segunda carga con la responsabilidad de haber sabido y no haber actuado. En materia de salud en el trabajo, ese contraste tiene consecuencias legales, económicas y humanas que merecen tomarse en serio.
+    </div>
+
+    <div class="tags">
+      <span class="tag">PIRP</span>
+      <span class="tag">Plan de Intervención Psicosocial</span>
+      <span class="tag">Batería psicosocial</span>
+      <span class="tag">Riesgo psicosocial Colombia</span>
+      <span class="tag">Res. 2646/2008</span>
+      <span class="tag">Decreto 728/2025</span>
+      <span class="tag">PVE psicosocial</span>
+      <span class="tag">SST Colombia</span>
+      <span class="tag">Indicadores SST</span>
+    </div>
+
+    <div class="author">
+      <div class="author-icon">👨‍💼</div>
+      <div>
+        <strong style="color:#0D1B2A;font-size:14px">Jose David Alomía Gutiérrez</strong><br>
+        <span style="font-size:13px;color:#6B7280">Psicólogo especialista en SST y riesgo psicosocial, T.P. 188394, Lic. SST 6121/2022. Aplicador certificado de la Batería de Riesgo Psicosocial. Fundador de Vitalis Empresarial, Cali, Colombia.</span>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>¿Su PIRP responde a los hallazgos reales de su última batería?</h3>
+      <p>El diagnóstico IVSO evalúa la madurez de su gestión psicosocial — incluyendo si su plan de intervención está correctamente construido y articulado con el diagnóstico. Gratuito, en 30 minutos.</p>
+      <a href="../index.html#ivso" class="btn">Hacer diagnóstico gratuito →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 Vitalis Empresarial® · Jose David Alomía Gutiérrez · Psicólogo Especialista en SST ·
+  <a href="../index.html#datos">Política de tratamiento de datos</a>
+</footer>
+</body>
+</html>
