@@ -3,7 +3,15 @@
    Sin semáforo rojo/amarillo/verde a propósito: evita el sesgo de deseabilidad social en las respuestas. */
 (function () {
   'use strict';
-  var FORMSUBMIT_TOKEN = 'REEMPLAZAR_TOKEN_FORMSUBMIT';
+  /* CONFIGURACIÓN DEL FORMULARIO (FormSubmit)
+     Hoy los mensajes llegan a CORREO_TEMPORAL. Cuando exista el buzón de SéVida:
+     1) cambie CORREO_ACTIVO = CORREO_SEVIDA (aquí y en el otro archivo: contacto.js / ismo.js);
+     2) envíe un mensaje de prueba y active el formulario con el enlace que FormSubmit manda a ese buzón;
+     3) opcional: pegue en FORMSUBMIT_TOKEN la cadena aleatoria que asigna FormSubmit, para no exponer el correo. */
+  var CORREO_TEMPORAL = 'josedavidalomia@gmail.com';
+  var CORREO_SEVIDA = 'contacto@sevidapsicosocial.com';
+  var CORREO_ACTIVO = CORREO_TEMPORAL;
+  var FORMSUBMIT_TOKEN = '';
 
   var DIMS = [
     { id: 'negocio', n: 'Indicadores de negocio', w: 0.20, qs: [
@@ -174,7 +182,7 @@
       var est = document.getElementById('ismo-envio'), btn = this; btn.disabled = true;
       var datos = Object.assign({}, perfil, { _subject: 'Resultado ISMO — ' + perfil.empresa, ismo: ismo, nivel: nivel.n, desafio: resp.desafio !== undefined ? DESAFIOS[resp.desafio] : '', fecha_autorizacion: new Date().toISOString(), _honey: '' });
       DIMS.concat([LEGAL]).forEach(function (d) { datos['dim_' + d.id] = pct(d); });
-      fetch('https://formsubmit.co/ajax/' + FORMSUBMIT_TOKEN, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos) })
+      fetch('https://formsubmit.co/ajax/' + (FORMSUBMIT_TOKEN || CORREO_ACTIVO), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos) })
         .then(function (r) { if (!r.ok) throw 0; est.className = 'estado-envio ok'; est.textContent = 'Recibimos su resultado. Le escribiremos para agendar la conversación diagnóstica de 30 minutos.'; })
         .catch(function () { est.className = 'estado-envio falla'; est.innerHTML = 'No se pudo enviar. Escríbanos por <a href="https://wa.me/573168768220">WhatsApp</a> con su resultado: ' + ismo + ' / 100.'; btn.disabled = false; });
     };

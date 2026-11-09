@@ -1,9 +1,16 @@
 /* SéVida™ — formulario de contacto (FormSubmit) */
 (function () {
   'use strict';
-  /* CONFIGURACIÓN: reemplace por el token que FormSubmit envía a contacto@sevidapsicosocial.com al activar el formulario */
-  var FORMSUBMIT_TOKEN = 'REEMPLAZAR_TOKEN_FORMSUBMIT';
-  var ENDPOINT = 'https://formsubmit.co/ajax/' + FORMSUBMIT_TOKEN;
+  /* CONFIGURACIÓN DEL FORMULARIO (FormSubmit)
+     Hoy los mensajes llegan a CORREO_TEMPORAL. Cuando exista el buzón de SéVida:
+     1) cambie CORREO_ACTIVO = CORREO_SEVIDA (aquí y en el otro archivo: contacto.js / ismo.js);
+     2) envíe un mensaje de prueba y active el formulario con el enlace que FormSubmit manda a ese buzón;
+     3) opcional: pegue en FORMSUBMIT_TOKEN la cadena aleatoria que asigna FormSubmit, para no exponer el correo. */
+  var CORREO_TEMPORAL = 'josedavidalomia@gmail.com';
+  var CORREO_SEVIDA = 'contacto@sevidapsicosocial.com';
+  var CORREO_ACTIVO = CORREO_TEMPORAL;
+  var FORMSUBMIT_TOKEN = '';
+  var ENDPOINT = 'https://formsubmit.co/ajax/' + (FORMSUBMIT_TOKEN || CORREO_ACTIVO);
   var WHATSAPP = 'https://wa.me/573168768220';
 
   var form = document.getElementById('form-contacto');

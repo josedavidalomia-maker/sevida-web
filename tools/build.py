@@ -18,7 +18,8 @@ DOMINIO = "https://sevidapsicosocial.com"
 HOY = datetime.date.today().isoformat()
 
 # ---------------------------------------------------------------- Configuración
-CORREO = "contacto@sevidapsicosocial.com"          # activar antes de publicar (checklist 3.2)
+CORREO_SEVIDA = "contacto@sevidapsicosocial.com"   # buzón definitivo: cuando exista, use CORREO = CORREO_SEVIDA
+CORREO = "josedavidalomia@gmail.com"   # temporal mientras se compra el dominio
 WHATSAPP = "573168768220"
 TELEFONO = "+57 315 053 0457"
 LINKEDIN = "https://www.linkedin.com/in/vitalisempresarial"   # renombrar a SéVida (checklist 3.4)

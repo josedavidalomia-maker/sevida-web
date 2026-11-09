@@ -35,8 +35,8 @@ En este orden:
 
 - [ ] Radicación de la marca ante la SIC.
 - [ ] Compra del hosting en Hostinger y del dominio `sevidapsicosocial.com`.
-- [ ] `contacto@sevidapsicosocial.com` activo (en `tools/build.py`, variable `CORREO`).
-- [ ] Token de FormSubmit, registrado con el correo nuevo, en `public/assets/js/contacto.js` y `public/assets/js/ismo.js` (`FORMSUBMIT_TOKEN`).
+- [ ] `contacto@sevidapsicosocial.com` activo. Hoy el sitio y los formularios usan el Gmail de forma temporal; al activarlo: en `tools/build.py` use `CORREO = CORREO_SEVIDA` y vuelva a generar, y en `public/assets/js/contacto.js` y `public/assets/js/ismo.js` use `CORREO_ACTIVO = CORREO_SEVIDA`.
+- [ ] Activar FormSubmit con el enlace que llega al buzón tras el primer envío (se repite al cambiar de correo). Opcional: usar la cadena aleatoria en `FORMSUBMIT_TOKEN`.
 - [ ] Redes renombradas a SéVida y enlaces actualizados (`LINKEDIN`, `INSTAGRAM` en `tools/build.py`).
 - [ ] Foto profesional nueva en `/nosotros/` (hoy hay un marcador).
 - [x] ISMO, nombres de las líneas de talleres y el lema «Medir. Intervenir. Recalibrar.» confirmados (5 de noviembre de 2026).
