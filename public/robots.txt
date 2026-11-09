@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sevida.com.co/sitemap.xml
+Sitemap: https://sevidapsicosocial.com/sitemap.xml

@@ -1,4 +1,4 @@
-# Cloudflare Pages: redirecciones dentro de sevida.com.co (las de otros dominios van en Bulk Redirects; ver DESPLIEGUE.md)
+# Solo para Cloudflare Pages (alternativa). En Hostinger las redirecciones están en public/.htaccess
 /index.html / 301
 /blog/index.html /blog/ 301
 /blog/analisis-puesto-trabajo-bateria-vs-determinacion-origen.html /blog/analisis-puesto-trabajo-bateria-vs-determinacion-origen/ 301

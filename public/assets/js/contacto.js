@@ -1,7 +1,7 @@
 /* SéVida™ — formulario de contacto (FormSubmit) */
 (function () {
   'use strict';
-  /* CONFIGURACIÓN: reemplace por el token que FormSubmit envía a contacto@sevida.com.co al activar el formulario */
+  /* CONFIGURACIÓN: reemplace por el token que FormSubmit envía a contacto@sevidapsicosocial.com al activar el formulario */
   var FORMSUBMIT_TOKEN = 'REEMPLAZAR_TOKEN_FORMSUBMIT';
   var ENDPOINT = 'https://formsubmit.co/ajax/' + FORMSUBMIT_TOKEN;
   var WHATSAPP = 'https://wa.me/573168768220';
@@ -39,7 +39,7 @@
     var boton = form.querySelector('button[type="submit"]');
     boton.disabled = true; boton.textContent = 'Enviando…';
     var datos = Object.fromEntries(new FormData(form).entries());
-    datos._subject = 'Nuevo mensaje desde sevida.com.co — ' + (datos.empresa || '');
+    datos._subject = 'Nuevo mensaje desde sevidapsicosocial.com — ' + (datos.empresa || '');
     datos.fecha_autorizacion = new Date().toISOString();
     fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(datos) })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })

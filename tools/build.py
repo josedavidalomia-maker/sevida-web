@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generador del sitio SéVida™ (sevida.com.co).
+"""Generador del sitio SéVida™ (sevidapsicosocial.com).
 
 Escribe HTML estático en public/. El sitio publicado no tiene paso de compilación:
 este script solo se usa para regenerar las páginas cuando cambia el contenido.
@@ -14,11 +14,11 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 PUB = RAIZ / "public"
 DATOS = RAIZ / "tools" / "datos"
-DOMINIO = "https://sevida.com.co"
+DOMINIO = "https://sevidapsicosocial.com"
 HOY = datetime.date.today().isoformat()
 
 # ---------------------------------------------------------------- Configuración
-CORREO = "contacto@sevida.com.co"          # activar antes de publicar (checklist 3.2)
+CORREO = "contacto@sevidapsicosocial.com"          # activar antes de publicar (checklist 3.2)
 WHATSAPP = "573168768220"
 TELEFONO = "+57 315 053 0457"
 LINKEDIN = "https://www.linkedin.com/in/vitalisempresarial"   # renombrar a SéVida (checklist 3.4)
@@ -32,6 +32,7 @@ MENU = [
     ("Servicios", [
         ("Todos los servicios", "/servicios/"),
         ("Diagnóstico SéVida · Batería", "/servicios/bateria-riesgo-psicosocial/"),
+        ("Análisis de puesto (APT)", "/servicios/analisis-puesto-trabajo/"),
         ("Recalibra Empresarial", "/servicios/recalibra-empresarial/"),
         ("Vigilancia epidemiológica (PVE)", "/servicios/vigilancia-epidemiologica/"),
         ("Acompañamiento SST Mensual", "/servicios/acompanamiento-sst/"),
@@ -157,7 +158,7 @@ PIE = f"""<footer class="pie"><div class="contenedor">
 <p>Consultoría en riesgo psicosocial, seguridad y salud en el trabajo y salud organizacional para empresas colombianas.</p>
 <p style="margin-top:10px">Dirección técnica: Jose David Alomía Gutiérrez, psicólogo especialista en Gerencia de la Seguridad y Salud en el Trabajo, con licencia en SST vigente.</p></div>
 <div><h4>Servicios</h4><ul>
-<li><a href="/servicios/bateria-riesgo-psicosocial/">Diagnóstico SéVida</a></li><li><a href="/servicios/recalibra-empresarial/">Recalibra Empresarial</a></li>
+<li><a href="/servicios/bateria-riesgo-psicosocial/">Diagnóstico SéVida</a></li><li><a href="/servicios/analisis-puesto-trabajo/">Análisis de puesto</a></li><li><a href="/servicios/recalibra-empresarial/">Recalibra Empresarial</a></li>
 <li><a href="/servicios/vigilancia-epidemiologica/">Vigilancia epidemiológica</a></li><li><a href="/servicios/acompanamiento-sst/">Acompañamiento SST</a></li>
 <li><a href="/servicios/talleres/">Talleres</a></li><li><a href="/servicios/coaching-lideres/">Coaching de líderes</a></li></ul></div>
 <div><h4>SéVida</h4><ul><li><a href="/metodo/">Método S·É·V·I·D·A</a></li><li><a href="/nosotros/">Nosotros</a></li>
@@ -299,7 +300,8 @@ def servicios():
                  tarjeta("Trascendencia", "Acompañamiento estratégico con la dirección y formación continua de líderes.", codigo="CONTINUIDAD") +
                  '</div>', "seccion-gris", "Después del proyecto", "Planes de continuidad mensual", "Se ofrecen cuando termina el diagnóstico o la intervención, para sostener los resultados.")
     c += seccion('<div class="rejilla r3">' +
-                 tarjeta("Batería de Riesgo Psicosocial y APT", "Aplicación de la batería oficial y análisis de puesto de trabajo preventivo o para determinación de origen.", "/servicios/bateria-riesgo-psicosocial/") +
+                 tarjeta("Batería de Riesgo Psicosocial", "Aplicación de la batería oficial en físico, con informe técnico y hoja de ruta.", "/servicios/bateria-riesgo-psicosocial/") +
+                 tarjeta("Análisis de puesto de trabajo", "APT preventivo o para determinación de origen, por cargo o por caso.", "/servicios/analisis-puesto-trabajo/") +
                  tarjeta("Vigilancia epidemiológica", "Programa de vigilancia epidemiológica psicosocial con indicadores y seguimiento.", "/servicios/vigilancia-epidemiologica/") +
                  tarjeta("Acompañamiento SST Mensual", "Su SG-SST gestionado por un especialista, en tres niveles según la Resolución 0312 de 2019.", "/servicios/acompanamiento-sst/") +
                  tarjeta("Talleres", "53 talleres en 6 líneas, de 1 a 2 horas, presenciales o virtuales.", "/servicios/talleres/") +
@@ -346,20 +348,40 @@ def bateria():
                 "La Batería de Instrumentos para la Evaluación de Factores de Riesgo Psicosocial (Ministerio de la Protección Social, 2010, con la Pontificia Universidad Javeriana) es la adoptada por la Resolución 2764 de 2022.")
     c += seccion(lista(["Informe técnico por área y cargo, firmado por psicólogo con licencia en SST", "Presentación de hallazgos a la dirección", "Hoja de ruta de intervención priorizada", "Primeros auxilios psicológicos cuando un caso lo requiere", "Base para el Programa de Vigilancia Epidemiológica"]),
                  "seccion-gris", "Qué entrega", "Lo que recibe la organización")
-    c += seccion('<div class="rejilla r2">' +
-                 tarjeta("APT Preventivo", "Analiza el dominio de demandas del trabajo de un cargo para prevenir la exposición: demandas cuantitativas, cognitivas y emocionales, y recomendaciones de rediseño.", codigo="SV-MD-APT-21") +
-                 tarjeta("APT para determinación de origen", "Protocolo completo para la calificación de origen ante la ARL, la EPS o las Juntas de Calificación: historia laboral, condiciones del cargo y concepto técnico.", codigo="SV-FT-APT-20 · SV-FT-APT-22") +
-                 '</div><div class="aviso"><strong>Son dos productos distintos.</strong> Llevan el mismo nombre, pero tienen propósitos, métodos y destinatarios diferentes. Mezclarlos debilita el informe.</div>',
-                 "", "Análisis de puesto de trabajo", "Dos análisis, dos propósitos")
+    c += seccion('<div class="aviso"><strong>¿Necesita un análisis de puesto de trabajo?</strong> El APT preventivo y el APT para determinación de origen son un servicio aparte, que se contrata por cargo o por caso. <a href="/servicios/analisis-puesto-trabajo/">Ver el servicio de APT →</a></div>', "")
     faq = [("¿Cuánto tarda la aplicación?", "Cada trabajador tarda entre 40 y 70 minutos. El informe se entrega entre 2 y 3 semanas después de recoger todos los cuestionarios."),
            ("¿Cada cuánto hay que repetirla?", "Como mínimo cada dos años, y antes si hay cambios importantes en la organización. Si la última aplicación usó instrumentos anteriores a la Resolución 2764 de 2022, hay que actualizarlos sin importar el tiempo transcurrido."),
            ("¿Se puede aplicar en varias sedes?", "Sí. Los cuestionarios se diligencian en físico en cada sede; la coordinación y la entrega de resultados pueden ser virtuales. El informe se puede segmentar por sede, área o cargo."),
            ("¿Las respuestas son confidenciales?", "Sí. Los resultados se reportan siempre por grupos, nunca por persona, y el tratamiento de datos cumple la Ley 1581 de 2012.")]
     c += seccion("".join(f"<details><summary>{q}</summary><div><p>{a}</p></div></details>" for q, a in faq), "seccion-gris", "Preguntas frecuentes", "Antes de contratar")
     c += cta("Solicite la propuesta de diagnóstico", "Con el número de trabajadores y las sedes le enviamos una propuesta ajustada.")
-    pagina("/servicios/bateria-riesgo-psicosocial/", "Batería de Riesgo Psicosocial y análisis de puesto", "Aplicación de la Batería de Riesgo Psicosocial (Resolución 2764 de 2022) en físico, informe firmado y hoja de ruta; análisis de puesto preventivo y para determinación de origen.",
+    pagina("/servicios/bateria-riesgo-psicosocial/", "Batería de Riesgo Psicosocial", "Aplicación de la Batería de Riesgo Psicosocial (Resolución 2764 de 2022) en físico, con informe técnico firmado y hoja de ruta de intervención.",
            c, kicker="Nivel 1 · Diagnóstico SéVida", titulo_corto="Batería de Riesgo Psicosocial", lead="El instrumento oficial, aplicado como lo exige la norma, con un informe que sirve para decidir.",
            ruta_migas=[("Servicios", "/servicios/"), ("Batería de Riesgo Psicosocial", None)], jsonld=[servicio_ld("Diagnóstico SéVida — Batería de Riesgo Psicosocial", "Aplicación de la batería oficial e informe técnico.", "/servicios/bateria-riesgo-psicosocial/")], prioridad="0.9")
+
+
+def apt():
+    c = seccion('<div class="rejilla r2">' +
+                tarjeta("APT Preventivo", "Analiza el dominio de demandas del trabajo de un cargo para prevenir la exposición: demandas cuantitativas, cognitivas y emocionales, y recomendaciones de rediseño.", codigo="SV-MD-APT-21") +
+                tarjeta("APT para determinación de origen", "Protocolo completo para la calificación de origen ante la ARL, la EPS o las Juntas de Calificación: historia laboral, condiciones del cargo y concepto técnico.", codigo="SV-FT-APT-20 · SV-FT-APT-22") +
+                '</div><div class="aviso"><strong>Son dos productos distintos.</strong> Llevan el mismo nombre, pero tienen propósitos, métodos y destinatarios diferentes. Mezclarlos debilita el informe.</div>',
+                "", "Dos servicios", "Dos análisis, dos propósitos", "Se contratan por cargo o por caso, con o sin batería.")
+    c += seccion('<div class="rejilla r2"><div><h3>APT Preventivo</h3>' + lista(["La batería identifica riesgo alto o muy alto en el dominio de demandas del trabajo en un cargo", "Se crea un cargo nuevo o se rediseña uno existente", "Un área presenta quejas recurrentes de sobrecarga o de ritmo de trabajo", "Entrega: descripción de las demandas del cargo y recomendaciones de rediseño priorizadas"]) +
+                 '</div><div><h3>APT para determinación de origen</h3>' + lista(["Un trabajador tiene un diagnóstico en salud mental y debe establecerse si su origen es laboral", "La ARL, la EPS o una Junta de Calificación de Invalidez solicita el análisis del puesto", "La empresa necesita documentar las condiciones reales del cargo para el proceso de calificación", "Entrega: historia laboral, condiciones del cargo y concepto técnico firmado"]) + '</div></div>',
+                 "seccion-gris", "Cuándo se necesita", "Cada análisis responde a una situación distinta")
+    c += seccion('<div class="rejilla r2"><div><p>El APT no reemplaza la batería ni hace parte de ella. Puede contratarse solo o como complemento cuando la batería señala un cargo crítico.</p><p style="margin-top:14px">Lo firma un psicólogo especialista en Gerencia de la Seguridad y Salud en el Trabajo, con licencia en SST vigente.</p></div>' +
+                 tarjeta("Batería de Riesgo Psicosocial", "Aplicación de la batería oficial en físico, con informe técnico y hoja de ruta.", "/servicios/bateria-riesgo-psicosocial/") +
+                 '</div><p style="margin-top:22px">Para profundizar: <a href="/blog/analisis-puesto-trabajo-bateria-vs-determinacion-origen/">Análisis de puesto de trabajo: batería psicosocial vs. determinación de origen</a>.</p>',
+                 "", "Relación con la batería", "Un servicio aparte, no un anexo")
+    faq = [("¿Se puede contratar el APT sin la batería?", "Sí. Es un servicio independiente. Si la organización ya aplicó la batería, sus resultados orientan qué cargos analizar primero."),
+           ("¿Qué diferencia hay entre los dos APT?", "El preventivo busca reducir la exposición en un cargo y se entrega a la empresa. El de determinación de origen aporta evidencia técnica para calificar si una enfermedad es laboral y se dirige a la ARL, la EPS o las Juntas de Calificación."),
+           ("¿Cómo se hace el análisis?", "Incluye la revisión de la información del cargo, la observación del puesto en el lugar de trabajo y entrevistas con el trabajador y su jefe inmediato."),
+           ("¿La información es confidencial?", "Sí. Se trata según la Ley 1581 de 2012 y solo se usa para el propósito del análisis.")]
+    c += seccion("".join(f"<details><summary>{q}</summary><div><p>{a}</p></div></details>" for q, a in faq), "seccion-gris", "Preguntas frecuentes", "Antes de contratar")
+    c += cta("Solicite la propuesta de APT", "Indíquenos el cargo, el propósito del análisis y la ciudad.")
+    pagina("/servicios/analisis-puesto-trabajo/", "Análisis de puesto de trabajo (APT)", "Análisis de puesto de trabajo (APT) como servicio independiente: APT preventivo del dominio de demandas y APT para determinación de origen ante la ARL, la EPS o las Juntas de Calificación.",
+           c, kicker="Servicio independiente", titulo_corto="Análisis de puesto de trabajo", lead="Dos análisis distintos: uno para prevenir la exposición en un cargo y otro para aportar el concepto técnico en la calificación de origen.",
+           ruta_migas=[("Servicios", "/servicios/"), ("Análisis de puesto de trabajo", None)], jsonld=[servicio_ld("Análisis de puesto de trabajo (APT)", "APT preventivo y APT para determinación de origen.", "/servicios/analisis-puesto-trabajo/")], prioridad="0.8")
 
 
 def pve():
@@ -418,7 +440,7 @@ def talleres():
     c = seccion('<div class="rejilla r4">' + "".join(f'<div class="tarjeta"><span class="numero">{len(l["t"])}</span><h3 style="margin-top:8px">{e(l["n"])}</h3></div>' for l in lineas) + "</div>" + h,
                 "", "Formación", f"{total} talleres en 6 líneas", "Presencial, virtual o híbrido · De 1 a 2 horas · Hasta 30 participantes · Material digital y certificado de asistencia.")
     c += cta("¿Necesita un taller para su sector?", "Diseñamos talleres a la medida de su industria, su tamaño y sus retos.", "Solicitar un taller")
-    pagina("/servicios/talleres/", "Talleres de bienestar y riesgo psicosocial", f"Catálogo de {total} talleres en 6 líneas: Fundamentos, Experiencias, Escuela de Liderazgo, Líderes, Familia y Alta Dirección.",
+    pagina("/servicios/talleres/", "Talleres de bienestar y riesgo psicosocial", f"Catálogo de {total} talleres en 6 líneas: Fundamentos, Experiencias, Escuela de Liderazgo, Gestión Directiva, Familia y Alta Dirección.",
            c, kicker="Talleres", titulo_corto="Catálogo de talleres", lead="Formación práctica para trabajadores, líderes, familias y alta dirección.",
            ruta_migas=[("Servicios", "/servicios/"), ("Talleres", None)])
 
@@ -674,21 +696,62 @@ def error_404():
     shutil.rmtree(PUB / "404")
 
 
+HTACCESS = r"""# SéVida — Hostinger (Apache / LiteSpeed). Lo genera tools/build.py.
+# Equivale a _redirects y _headers, que solo usa Cloudflare Pages.
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# HTTPS y dominio sin www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://@HOST@/$1 [R=301,L]
+
+# /index.html -> /   y   /carpeta/index.html -> /carpeta/
+RewriteCond %{THE_REQUEST} \s/+((?:[^\s?]*/)?)index\.html[\s?]
+RewriteRule ^ /%1 [R=301,L]
+
+# Rutas del sitio anterior
+RewriteRule ^blog/([a-z0-9-]+)\.html$ /blog/$1/ [R=301,L]
+RewriteRule ^ivso/?$ /ismo/ [R=301,L]
+RewriteRule ^(evolucion|reset-laboral)/?$ /servicios/recalibra-empresarial/ [R=301,L]
+</IfModule>
+
+<FilesMatch "^_(redirects|headers)$">
+Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+<FilesMatch "\.(css|js|png|jpe?g|svg|webp|ico|woff2?)$">
+Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
+</IfModule>
+"""
+
+
 def extras():
     urls = "".join(f"<url><loc>{DOMINIO}{r}</loc><lastmod>{HOY}</lastmod><priority>{p}</priority></url>" for r, p in sorted(PAGINAS))
     (PUB / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
     (PUB / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {DOMINIO}/sitemap.xml\n", encoding="utf-8")
-    redir = ["# Cloudflare Pages: redirecciones dentro de sevida.com.co (las de otros dominios van en Bulk Redirects; ver DESPLIEGUE.md)",
+    redir = ["# Solo para Cloudflare Pages (alternativa). En Hostinger las redirecciones están en public/.htaccess",
              "/index.html / 301", "/blog/index.html /blog/ 301"]
     redir += [f"/blog/{s}.html /blog/{s}/ 301" for s, *_ in ARTICULOS]
     redir += ["/ivso /ismo/ 301", "/ivso/ /ismo/ 301", "/evolucion/ /servicios/recalibra-empresarial/ 301", "/reset-laboral/ /servicios/recalibra-empresarial/ 301"]
     (PUB / "_redirects").write_text("\n".join(redir) + "\n", encoding="utf-8")
     (PUB / "_headers").write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n\n/assets/*\n  Cache-Control: public, max-age=604800\n", encoding="utf-8")
+    (PUB / ".htaccess").write_text(HTACCESS.replace("@HOST@", DOMINIO.split("//")[1]), encoding="utf-8")
 
 
 if __name__ == "__main__":
     migrar_blog()
-    for f in (inicio, servicios, recalibra, bateria, pve, sst, talleres, coaching, metodo, nosotros, normativa, ismo, contacto, politica, blog_indice, error_404):
+    for f in (inicio, servicios, recalibra, bateria, apt, pve, sst, talleres, coaching, metodo, nosotros, normativa, ismo, contacto, politica, blog_indice, error_404):
         f()
     extras()
     print(f"{len(PAGINAS)} páginas indexables generadas en {PUB}")
