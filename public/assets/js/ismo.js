@@ -156,6 +156,34 @@
     return r;
   }
 
+  /* PDF del resultado: jsPDF se carga solo cuando se pide el informe */
+  var JSPDF_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  var LOGO_URL = '/assets/img/sevida-isotipo.svg';
+  function cargarJsPDF() {
+    return new Promise(function (ok, ko) {
+      if (window.jspdf) return ok(window.jspdf.jsPDF);
+      var s = document.createElement('script'); s.src = JSPDF_URL; s.async = true;
+      s.onload = function () { if (window.jspdf) ok(window.jspdf.jsPDF); else ko(); };
+      s.onerror = ko; document.head.appendChild(s);
+    });
+  }
+  function cargarLogo() {
+    return new Promise(function (ok, ko) {
+      var img = new Image();
+      img.onload = function () {
+        try { var c = document.createElement('canvas'); c.width = c.height = 160; c.getContext('2d').drawImage(img, 0, 0, 160, 160); ok(c.toDataURL('image/png')); } catch (e) { ko(); }
+      };
+      img.onerror = ko; img.src = LOGO_URL;
+    });
+  }
+  function latin(s) {
+    return String(s == null ? '' : s).replace(/[\u2013\u2014]/g, '-').replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"')
+      .replace(/\u2192/g, '>').replace(/\u2026/g, '...').replace(/[^\x00-\xFF]/g, '');
+  }
+  function slug(s) {
+    return (String(s || 'empresa').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'empresa').slice(0, 60);
+  }
+
   function pintarResultado() {
     var v = 0; DIMS.forEach(function (d) { v += pct(d) * d.w; });
     var lp = pct(LEGAL), ismo = Math.round(v * 0.80 + lp * 0.20);
@@ -174,17 +202,120 @@
     });
     if (resp.desafio !== undefined) h += '<p style="margin-top:14px"><strong>Desafío que usted priorizó:</strong> ' + esc(DESAFIOS[resp.desafio]) + '.</p>';
     h += '<p class="meta" style="color:#5B6676">ISMO = 80 % dimensiones organizacionales + 20 % cumplimiento legal. Es una herramienta de orientación: no reemplaza la Batería de Riesgo Psicosocial ni la autoevaluación de estándares mínimos.</p>' +
-      '<div class="ismo-nav" style="flex-wrap:wrap"><button class="btn btn-secundario" type="button" id="ismo-imprimir">Imprimir o guardar en PDF</button>' +
-      '<button class="btn btn-primario" type="button" id="ismo-enviar">Enviar mi resultado a SéVida y agendar la conversación</button></div><p id="ismo-envio" class="estado-envio"></p></div>';
+      '<div class="ismo-nav" style="flex-wrap:wrap"><button class="btn btn-primario" type="button" id="ismo-enviar">Descargar mi informe en PDF y enviarlo a SéVida</button></div>' +
+      '<p style="margin-top:10px;color:#5B6676;font-size:.92rem">El informe se descarga en su equipo y una copia llega a SéVida para agendar la conversación diagnóstica de 30 minutos.</p>' +
+      '<p id="ismo-envio" class="estado-envio"></p></div>';
     raiz.innerHTML = h;
-    document.getElementById('ismo-imprimir').onclick = function () { window.print(); };
+    var fecha = new Date().toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    /* Informe en PDF con la identidad de SéVida (sin colores de semáforo) */
+    function informePDF(J, logo) {
+      var d = new J({ unit: 'mm', format: 'a4' }), W = 210, M = 18, ANCHO = W - 2 * M, y = 0;
+      var NAVY = [13, 27, 42], TEAL = [14, 124, 123], GOLD = [201, 168, 76], GRIS = [91, 102, 118], PISTA = [226, 232, 238], FONDO = [244, 246, 248];
+      function color(c) { d.setTextColor(c[0], c[1], c[2]); }
+      function relleno(c) { d.setFillColor(c[0], c[1], c[2]); }
+      function fuente(estilo, tam) { d.setFont('helvetica', estilo); d.setFontSize(tam); }
+      function pie() {
+        var n = d.getNumberOfPages();
+        for (var i = 1; i <= n; i++) {
+          d.setPage(i); relleno(GOLD); d.rect(M, 283, ANCHO, 0.4, 'F'); fuente('normal', 7.5); color(GRIS);
+          d.text(latin('SéVida | Riesgo Psicosocial · WhatsApp +57 316 876 8220'), M, 287.5);
+          d.text(i + ' de ' + n, W - M, 287.5, { align: 'right' });
+          d.text(latin('Dirección técnica: Jose David Alomía Gutiérrez, psicólogo especialista en Gerencia de la Seguridad y Salud en el Trabajo'), M, 291.5);
+        }
+      }
+      function espacio(h) { if (y + h > 274) { d.addPage(); y = 22; } }
+      function parrafo(texto, tam, c, estilo, sangria) {
+        fuente(estilo || 'normal', tam); color(c || NAVY);
+        var ls = d.splitTextToSize(latin(texto), ANCHO - (sangria || 0)), alto = tam * 0.42;
+        ls.forEach(function (l) { espacio(alto); d.text(l, M + (sangria || 0), y); y += alto; });
+      }
+      function titulo(texto) { y += 4; espacio(14); fuente('bold', 8); color(TEAL); d.text(latin(texto.toUpperCase()), M, y); y += 2; relleno(TEAL); d.rect(M, y, 12, 0.6, 'F'); y += 6; }
+
+      relleno(NAVY); d.rect(0, 0, W, 34, 'F'); relleno(GOLD); d.rect(0, 34, W, 1.2, 'F');
+      var x0 = M;
+      if (logo) { d.setFillColor(255, 255, 255); d.circle(M + 9, 17, 9.5, 'F'); d.addImage(logo, 'PNG', M + 2.5, 10.5, 13, 13, undefined, 'FAST'); x0 = M + 24; }
+      d.setTextColor(255, 255, 255); fuente('bold', 19); d.text(latin('SéVida'), x0, 16.5);
+      fuente('normal', 8.5); d.text(latin('Riesgo Psicosocial · Medir. Intervenir. Recalibrar.'), x0, 22.5);
+      fuente('bold', 9); d.text(latin('Índice SéVida de Madurez Organizacional'), W - M, 16.5, { align: 'right' });
+      fuente('normal', 8.5); d.text(latin(fecha), W - M, 22.5, { align: 'right' });
+
+      y = 48; fuente('bold', 8); color(TEAL); d.text(latin('RESULTADO DEL ÍNDICE ISMO'), M, y);
+      y += 8; parrafo(perfil.empresa || 'Organización', 17, NAVY, 'bold');
+      var datosEmp = [perfil.sector, perfil.trabajadores ? perfil.trabajadores + ' trabajadores' : '', perfil.ciudad].filter(Boolean).join(' · ');
+      if (datosEmp) { y += 1; parrafo(datosEmp, 9.5, GRIS); }
+
+      y += 5; var caja = y; relleno(FONDO); d.roundedRect(M, caja, ANCHO, 38, 2, 2, 'F'); relleno(TEAL); d.rect(M, caja, 1.6, 38, 'F');
+      fuente('bold', 40); color(NAVY); d.text(String(ismo), M + 10, caja + 23);
+      var anchoNum = d.getTextWidth(String(ismo)); fuente('normal', 12); color(GRIS); d.text('/ 100', M + 12 + anchoNum, caja + 23);
+      fuente('bold', 7.5); color(TEAL); d.text(latin('NIVEL DE MADUREZ'), M + 62, caja + 10);
+      fuente('bold', 13); color(NAVY); d.text(latin(nivel.n), M + 62, caja + 17);
+      fuente('normal', 9); color(GRIS); d.text(d.splitTextToSize(latin(nivel.d), ANCHO - 68).slice(0, 4), M + 62, caja + 23);
+      y = caja + 46;
+
+      titulo('Perfil por dimensión');
+      DIMS.concat([LEGAL]).forEach(function (dim) {
+        var p = pct(dim); espacio(11);
+        fuente('normal', 9.5); color(NAVY); d.text(latin(dim.n), M, y);
+        fuente('bold', 9.5); d.text(String(p), W - M, y, { align: 'right' });
+        y += 2.2; relleno(PISTA); d.roundedRect(M, y, ANCHO, 2.6, 1.3, 1.3, 'F');
+        if (p > 0) { relleno(dim === LEGAL ? NAVY : TEAL); d.roundedRect(M, y, Math.max(2.6, ANCHO * p / 100), 2.6, 1.3, 1.3, 'F'); }
+        y += 8.5;
+      });
+
+      titulo('Qué hacer primero');
+      recomendaciones().forEach(function (r, i) {
+        espacio(18); parrafo((i + 1) + '. ' + r[0], 10.5, NAVY, 'bold'); y += 0.8;
+        parrafo(r[1], 9.5, GRIS, 'normal', 4.5); y += 0.6;
+        parrafo('Servicio relacionado: ' + r[2], 9, TEAL, 'bold', 4.5); y += 3.5;
+      });
+      if (resp.desafio !== undefined) { titulo('Desafío que usted priorizó'); parrafo(DESAFIOS[resp.desafio] + '.', 10, NAVY); }
+
+      y += 6; espacio(26); var nota = y; relleno(FONDO); d.roundedRect(M, nota, ANCHO, 22, 2, 2, 'F');
+      y = nota + 7; fuente('bold', 8.5); color(NAVY); d.text(latin('Cómo leer este resultado'), M + 5, y); y += 4.5;
+      fuente('normal', 8.5); color(GRIS);
+      d.text(d.splitTextToSize(latin('ISMO = 80 % dimensiones organizacionales + 20 % cumplimiento legal. Es una herramienta de orientación: no reemplaza la Batería de Riesgo Psicosocial (Resolución 2764 de 2022) ni la autoevaluación de estándares mínimos del SG-SST.'), ANCHO - 10), M + 5, y);
+      pie();
+      return d;
+    }
+
+    function enviarResultado(adjunto) {
+      var fd = new FormData();
+      fd.append('_subject', 'Resultado ISMO — ' + (perfil.empresa || '') + ' (' + ismo + ' / 100)');
+      fd.append('_template', 'table'); fd.append('_captcha', 'false'); fd.append('_honey', '');
+      if (perfil.correo) fd.append('_replyto', perfil.correo);
+      [['Empresa', perfil.empresa], ['Sector', perfil.sector], ['Trabajadores', perfil.trabajadores], ['Ciudad', perfil.ciudad],
+       ['Nombre', perfil.nombre], ['Correo', perfil.correo], ['Índice ISMO', ismo + ' / 100'], ['Nivel de madurez', nivel.n],
+       ['Desafío priorizado', resp.desafio !== undefined ? DESAFIOS[resp.desafio] : '']].forEach(function (c) { fd.append(c[0], c[1] == null ? '' : String(c[1])); });
+      DIMS.concat([LEGAL]).forEach(function (dim) { fd.append(dim.n, pct(dim) + ' / 100'); });
+      fd.append('Autorización de datos', 'Sí — ' + new Date().toLocaleString('es-CO'));
+      if (adjunto) fd.append('attachment', new File([adjunto.blob], adjunto.nombre, { type: 'application/pdf' }));
+      /* Envío directo (no AJAX): es la única vía en que FormSubmit adjunta archivos. La respuesta es opaca. */
+      return fetch('https://formsubmit.co/' + (FORMSUBMIT_TOKEN || CORREO_ACTIVO), { method: 'POST', mode: 'no-cors', body: fd });
+    }
+
     document.getElementById('ismo-enviar').onclick = function () {
-      var est = document.getElementById('ismo-envio'), btn = this; btn.disabled = true;
-      var datos = Object.assign({}, perfil, { _subject: 'Resultado ISMO — ' + perfil.empresa, ismo: ismo, nivel: nivel.n, desafio: resp.desafio !== undefined ? DESAFIOS[resp.desafio] : '', fecha_autorizacion: new Date().toISOString(), _honey: '' });
-      DIMS.concat([LEGAL]).forEach(function (d) { datos['dim_' + d.id] = pct(d); });
-      fetch('https://formsubmit.co/ajax/' + (FORMSUBMIT_TOKEN || CORREO_ACTIVO), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos) })
-        .then(function (r) { if (!r.ok) throw 0; est.className = 'estado-envio ok'; est.textContent = 'Recibimos su resultado. Le escribiremos para agendar la conversación diagnóstica de 30 minutos.'; })
-        .catch(function () { est.className = 'estado-envio falla'; est.innerHTML = 'No se pudo enviar. Escríbanos por <a href="https://wa.me/573168768220">WhatsApp</a> con su resultado: ' + ismo + ' / 100.'; btn.disabled = false; });
+      var est = document.getElementById('ismo-envio'), btn = this;
+      btn.disabled = true; est.className = 'estado-envio'; est.textContent = 'Preparando su informe…';
+      cargarJsPDF()
+        .then(function (J) { return cargarLogo().then(function (l) { return [J, l]; }, function () { return [J, null]; }); })
+        .then(function (par) {
+          try {
+            var pdf = informePDF(par[0], par[1]), nombre = 'ISMO-' + slug(perfil.empresa) + '.pdf';
+            pdf.save(nombre);
+            return { blob: pdf.output('blob'), nombre: nombre };
+          } catch (e) { window.print(); return null; }
+        }, function () { window.print(); return null; })
+        .then(enviarResultado)
+        .then(function () {
+          est.className = 'estado-envio ok';
+          est.textContent = 'Listo: su informe se descargó y una copia llegó a SéVida. Le escribiremos para agendar la conversación diagnóstica de 30 minutos.';
+        })
+        .catch(function () {
+          est.className = 'estado-envio falla';
+          est.innerHTML = 'No se pudo enviar. Escríbanos por <a href="https://wa.me/573168768220">WhatsApp</a> con su resultado: ' + ismo + ' / 100.';
+          btn.disabled = false;
+        });
     };
     raiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
