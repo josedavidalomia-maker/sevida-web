@@ -47,6 +47,7 @@
     boton.disabled = true; boton.textContent = 'Enviando…';
     var datos = Object.fromEntries(new FormData(form).entries());
     datos._subject = 'Nuevo mensaje desde sevidapsicosocial.com — ' + (datos.empresa || '');
+    datos._template = 'table';
     datos.fecha_autorizacion = new Date().toISOString();
     fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(datos) })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
