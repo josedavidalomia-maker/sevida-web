@@ -1,0 +1,36 @@
+name: Publicar en GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preparar copia para /sevida-web/ (los archivos fuente no cambian)
+        run: |
+          BASE=/sevida-web
+          SITIO="https://josedavidalomia-maker.github.io$BASE"
+          cp -r public _site
+          rm -f _site/.htaccess _site/_redirects _site/_headers
+          find _site -type f \( -name '*.html' -o -name '*.xml' -o -name '*.txt' -o -name '*.js' \) -exec perl -pi -e "s#https://sevidapsicosocial\.com#$SITIO#g" {} +
+          find _site -type f -name '*.html' -exec perl -pi -e "s#\b(href|src|action)=\"/(?!/)#\$1=\"$BASE/#g" {} +
+          find _site -type f -name '*.js' -exec perl -pi -e "s#(['\"])/(?=[a-z]|\1)#\$1$BASE/#g" {} +
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
